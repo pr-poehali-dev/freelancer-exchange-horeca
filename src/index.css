@@ -4,38 +4,40 @@
 
 @layer base {
   :root {
-    --background: 0 0% 6%;
-    --foreground: 0 0% 96%;
+    --background: 0 0% 100%;
+    --foreground: 220 20% 8%;
 
-    --card: 0 0% 9%;
-    --card-foreground: 0 0% 96%;
+    --card: 0 0% 100%;
+    --card-foreground: 220 20% 8%;
 
-    --popover: 0 0% 9%;
-    --popover-foreground: 0 0% 96%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 220 20% 8%;
 
-    --primary: 43 74% 66%;
-    --primary-foreground: 0 0% 6%;
+    --primary: 228 100% 50%;
+    --primary-foreground: 0 0% 100%;
 
-    --secondary: 0 0% 12%;
-    --secondary-foreground: 0 0% 80%;
+    --secondary: 220 14% 96%;
+    --secondary-foreground: 220 20% 8%;
 
-    --muted: 0 0% 12%;
-    --muted-foreground: 0 0% 50%;
+    --muted: 220 14% 96%;
+    --muted-foreground: 220 10% 55%;
 
-    --accent: 43 74% 66%;
-    --accent-foreground: 0 0% 6%;
+    --accent: 228 100% 50%;
+    --accent-foreground: 0 0% 100%;
 
-    --destructive: 0 72% 51%;
-    --destructive-foreground: 0 0% 96%;
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 100%;
 
-    --border: 0 0% 14%;
-    --input: 0 0% 14%;
-    --ring: 43 74% 66%;
+    --border: 220 13% 90%;
+    --input: 220 13% 90%;
+    --ring: 228 100% 50%;
 
     --radius: 1rem;
 
-    --gold: #d4a853;
-    --gold-dim: #9a7840;
+    --blue: #1a3bff;
+    --orange: #ff6b35;
+    --orange-dark: #e55a25;
+    --gray-light: #f4f5f7;
   }
 }
 
@@ -56,29 +58,50 @@
 }
 
 @layer utilities {
-  .gold-text {
-    color: var(--gold);
+  .blue-text {
+    color: var(--blue);
   }
-  .gold-bg {
-    background: var(--gold);
+  .orange-text {
+    color: var(--orange);
   }
-  .gold-border {
-    border-color: var(--gold);
+  .blue-bg {
+    background: var(--blue);
   }
+  .orange-bg {
+    background: var(--orange);
+  }
+  .gray-bg {
+    background: var(--gray-light);
+  }
+
   .animate-fade-in {
-    animation: fadeIn 0.35s ease both;
+    animation: fadeIn 0.3s ease both;
   }
   .animate-slide-up {
     animation: slideUp 0.35s cubic-bezier(0.22, 1, 0.36, 1) both;
-  }
-  .animate-scale-in {
-    animation: scaleIn 0.25s cubic-bezier(0.22, 1, 0.36, 1) both;
   }
   .tap-scale {
     transition: transform 0.12s ease;
   }
   .tap-scale:active {
-    transform: scale(0.95);
+    transform: scale(0.97);
+  }
+  .btn-orange {
+    @apply text-white font-bold rounded-full py-4 w-full text-base tap-scale text-center block;
+    background: var(--orange);
+    transition: background 0.15s;
+  }
+  .btn-orange:active {
+    background: var(--orange-dark);
+  }
+  .btn-blue {
+    @apply text-white font-bold rounded-full py-4 w-full text-base tap-scale text-center block;
+    background: var(--blue);
+  }
+  .btn-outline {
+    @apply bg-white font-bold rounded-full py-4 w-full text-base tap-scale text-center block;
+    border: 2px solid var(--blue);
+    color: var(--blue);
   }
 }
 
@@ -94,21 +117,10 @@
 @keyframes slideUp {
   from {
     opacity: 0;
-    transform: translateY(20px);
+    transform: translateY(18px);
   }
   to {
     opacity: 1;
     transform: translateY(0);
-  }
-}
-
-@keyframes scaleIn {
-  from {
-    opacity: 0;
-    transform: scale(0.92);
-  }
-  to {
-    opacity: 1;
-    transform: scale(1);
   }
 }
